@@ -171,6 +171,8 @@ Official states:
 
 For every official action, record `special_request`, `recommended`, `final_direction`, `beat_sheet`, `preview_required`, `preview_confirmed`, and `source` in `pet_brief.json`. Mark `source` as `user`, `mixed`, or `recommended`.
 
+Lock the canonical limb inventory and appendage shapes, including absent hands/fingers, in `appearance.visual_locks`. Action names never authorize new anatomy: rounded plush arm ends must remain rounded, and characters without hands or fingers must not acquire them. Any unsupported anatomy in any frame fails QA.
+
 Adapt movement to the pet form. A half-body pet, screen face, floating object, or object mascot does not need literal legs; translate movement into drifting, bouncing, tilting, sliding, jetting, screen flicker, or prop motion.
 
 Show a complete action card and ask the user to confirm or revise it. Accept natural short edits such as `改 failed`, `waving 改成点头`, or `running-left 不要镜像`. Do not hand off until all 9 official actions have `final_direction`.

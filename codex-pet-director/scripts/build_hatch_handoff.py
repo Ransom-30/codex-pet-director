@@ -75,6 +75,7 @@ def style_notes(brief: dict[str, Any]) -> str:
     return compact_join(
         [
             "Maximum likeness within official Codex pet limits: preserve the strongest user-requested identity cues while simplifying details that fail at 192x208.",
+            "Preserve the canonical limb inventory and terminal shapes, including absent hands/fingers. Never invent human palms, thumbs or fingers on rounded plush arm ends or add limbs to satisfy an action name; unsupported anatomy fails QA in every action and redo.",
             "Keep canonical head/body and limb proportions, camera scale, materials/textures, shading, outlines and identity details consistent with the approved production base across every action and redo. Perspective and intentional approved motion must not introduce identity or rendering drift.",
             "Inspect every active frame and animated loop for coherent motion, stable facial identity across directions, and native-size sharpness; structural QA alone is insufficient. Offer targeted action revisions after previews and final generation.",
             "Use the production_base image as the only canonical production reference; formal_character_image and concept images are auxiliary only.",
