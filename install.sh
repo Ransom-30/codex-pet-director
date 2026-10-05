@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SKILL_NAME="codex-pet-director"
-ALIAS_SKILL_NAME="create-pet"
+ALIAS_SKILL_NAME="jam-create-pet"
 REPO="${CODEX_PET_DIRECTOR_REPO:-zixuanzhou0-ai/codex-pet-director}"
 BRANCH="${CODEX_PET_DIRECTOR_BRANCH:-main}"
 DRY_RUN=0
@@ -62,8 +62,8 @@ step() {
 }
 
 print_next_step() {
-  step "Next step: restart Codex if needed, then search create-pet in the slash menu or paste this into Codex:"
-  printf '%s\n' "/create-pet"
+  step "Next step: restart Codex if needed, then search jam-create-pet in the slash menu or paste this into Codex:"
+  printf '%s\n' "/jam-create-pet"
 }
 
 normalize_path_string() {

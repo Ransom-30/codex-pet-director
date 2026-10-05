@@ -13,7 +13,7 @@
   ↓
 重启 Codex
   ↓
-选择 create-pet 或输入 /create-pet
+选择 jam-create-pet 或输入 /jam-create-pet
   ↓
 选择新建、继续或查看
   ↓
@@ -40,9 +40,9 @@
 
 ```powershell
 Test-Path "$env:USERPROFILE\.codex\skills\codex-pet-director"
-Test-Path "$env:USERPROFILE\.codex\skills\create-pet"
+Test-Path "$env:USERPROFILE\.codex\skills\jam-create-pet"
 Test-Path "$env:USERPROFILE\.agents\skills\codex-pet-director"
-Test-Path "$env:USERPROFILE\.agents\skills\create-pet"
+Test-Path "$env:USERPROFILE\.agents\skills\jam-create-pet"
 Test-Path "$env:USERPROFILE\plugins\codex-pet-director"
 Test-Path "$env:USERPROFILE\.codex\plugins\cache\local-codex-pet-director"
 ```
@@ -65,7 +65,7 @@ https://github.com/zixuanzhou0-ai/codex-pet-director
 
 - README 顶部是否能立刻看到“快速入口”。
 - 用户是否能一眼找到安装句子。
-- `/create-pet` 是否足够明显。
+- `/jam-create-pet` 是否足够明显。
 
 ### 2. 把安装句子发给 Codex
 
@@ -83,9 +83,9 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 
 ```text
 C:\Users\<用户名>\.codex\skills\codex-pet-director
-C:\Users\<用户名>\.codex\skills\create-pet
+C:\Users\<用户名>\.codex\skills\jam-create-pet
 C:\Users\<用户名>\.agents\skills\codex-pet-director
-C:\Users\<用户名>\.agents\skills\create-pet
+C:\Users\<用户名>\.agents\skills\jam-create-pet
 C:\Users\<用户名>\plugins\codex-pet-director
 C:\Users\<用户名>\.codex\plugins\cache\local-codex-pet-director\codex-pet-director\<版本号>
 C:\Users\<用户名>\.agents\plugins\marketplace.json
@@ -105,16 +105,16 @@ C:\Users\<用户名>\.agents\plugins\marketplace.json
 在 Codex 的斜杠菜单里搜索并选择：
 
 ```text
-create-pet
+jam-create-pet
 ```
 
 也可以直接发送：
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
-如果手动输入完整 `/create-pet` 时显示“无命令”，也直接把它当普通消息发送。第三方 skill 入口需要从菜单里选择才会变成菜单项。
+如果手动输入完整 `/jam-create-pet` 时显示“无命令”，也直接把它当普通消息发送。第三方 skill 入口需要从菜单里选择才会变成菜单项。
 
 期望结果：
 
@@ -142,7 +142,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubus
 - 最后提示用户重启 Codex，并输入：
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 ## 路线 C：Skills CLI 用户
@@ -153,15 +153,15 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubus
 
 ```bash
 npx skills add zixuanzhou0-ai/codex-pet-director --skill codex-pet-director --agent codex -g -y --copy
-npx skills add zixuanzhou0-ai/codex-pet-director --skill create-pet --agent codex -g -y --copy
+npx skills add zixuanzhou0-ai/codex-pet-director --skill jam-create-pet --agent codex -g -y --copy
 ```
 
 期望结果：
 
-- 从 GitHub 的 `skills/codex-pet-director` 和 `skills/create-pet` 路径安装。
+- 从 GitHub 的 `skills/codex-pet-director` 和 `skills/jam-create-pet` 路径安装。
 - 写入本机 Agents skills 目录。
 - 写入或更新 `.agents/.skill-lock.json`。
-- Codex 能在后续会话中发现主 skill 和 `create-pet` 入口。
+- Codex 能在后续会话中发现主 skill 和 `jam-create-pet` 入口。
 
 ## 路线 D：项目自带 npx 安装器
 
@@ -176,10 +176,10 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 期望结果：
 
 - 从 GitHub 拉取 package。
-- 安装到本机 Codex skills 目录，包括 `codex-pet-director` 和 `create-pet`。
+- 安装到本机 Codex skills 目录，包括 `codex-pet-director` 和 `jam-create-pet`。
 - 同步镜像到 Agents skills 目录，并更新 `.agents/.skill-lock.json`，方便 Skill 搜索页和管理器发现。
 - 写入本地 plugin package、Codex plugin cache、marketplace 和 `config.toml`。
-- 输出下一步 `/create-pet`。
+- 输出下一步 `/jam-create-pet`。
 
 ## 启动后的测试对话
 
@@ -201,7 +201,7 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 
 ## production_base 对接测试
 
-这个测试用来确认 `create-pet` 和 `hatch-pet` 没有再把高清图直接混用。
+这个测试用来确认 `jam-create-pet` 和 `hatch-pet` 没有再把高清图直接混用。
 
 ### 场景 1：高清参考图
 
@@ -235,7 +235,7 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 
 ## 参考角色联网测试
 
-再开一个新对话，输入 `/create-pet` 后，可以用这个方向测试：
+再开一个新对话，输入 `/jam-create-pet` 后，可以用这个方向测试：
 
 ```text
 我想做一个像某个动漫角色的 Codex 桌面宠物，但我不太会描述外观。
@@ -257,8 +257,8 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 
 - 用户能从 README 找到安装方法。
 - 用户不需要理解 `SKILL.md`、`pet_brief.json`、spritesheet。
-- 安装后选择 `create-pet` 或输入 `/create-pet` 能启动。
-- 裸 `/create-pet` 启动后第一步是模式选择，不会自动续跑旧草稿。
+- 安装后选择 `jam-create-pet` 或输入 `/jam-create-pet` 能启动。
+- 裸 `/jam-create-pet` 启动后第一步是模式选择，不会自动续跑旧草稿。
 - 选择新建或继续后会进行环境检查。
 - 问题是小白能懂的中文。
 - 它不会承诺无限动作、额外帧数、键盘控制或手柄控制。
@@ -280,8 +280,8 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 Codex 是否重启：
 安装路线：A / B / C / D
 是否安装成功：
-create-pet 是否能在斜杠菜单搜索到：
-/create-pet 普通消息是否启动：
+jam-create-pet 是否能在斜杠菜单搜索到：
+/jam-create-pet 普通消息是否启动：
 Codex plugin cache 是否生成：
 环境检查是否出现：
 第一轮问题是否清楚：

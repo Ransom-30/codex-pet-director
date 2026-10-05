@@ -2,9 +2,9 @@
 description: Start Codex Pet Director to create an official desktop pet with a checked hatch-pet handoff.
 ---
 
-# /create-pet
+# /jam-create-pet
 
-Open the beginner-friendly Codex desktop pet launcher. A bare `/create-pet` should ask whether the user wants to create a new pet, continue an existing draft, or inspect an existing draft before any production work starts.
+Open the beginner-friendly Codex desktop pet launcher. A bare `/jam-create-pet` should ask whether the user wants to create a new pet, continue an existing draft, or inspect an existing draft before any production work starts.
 
 ## Arguments
 
@@ -15,7 +15,7 @@ Open the beginner-friendly Codex desktop pet launcher. A bare `/create-pet` shou
 ## Workflow
 
 1. Use `$codex-pet-director`.
-2. If the user only sends `/create-pet`, ask them to choose `新建宠物`, `继续已有`, or `查看已有`.
+2. If the user only sends `/jam-create-pet`, ask them to choose `新建宠物`, `继续已有`, or `查看已有`.
 3. If the current folder has `pet_brief.json`, mention it, but do not resume or overwrite it silently.
 4. Run the pet environment check after the user chooses `新建宠物` or `继续已有`.
 5. If the environment can host Codex pets, continue with the seven-block interview.

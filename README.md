@@ -44,16 +44,16 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 安装完成后重启 Codex，然后在输入框里打：
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
-如果斜杠菜单展开，选择 `create-pet` 这个 skill 入口；如果菜单没有展开，直接把 `/create-pet` 当普通消息发出去也能启动。启动后它会先问你要 `新建宠物`、`继续已有` 还是 `查看已有`，不会直接续跑旧草稿或开始生产。
+如果斜杠菜单展开，选择 `jam-create-pet` 这个 skill 入口；如果菜单没有展开，直接把 `/jam-create-pet` 当普通消息发出去也能启动。启动后它会先问你要 `新建宠物`、`继续已有` 还是 `查看已有`，不会直接续跑旧草稿或开始生产。
 
 如果你的环境有 Skills CLI，也可以用 GitHub skill 安装方式。注意要装两个 skill：主流程和桌面端入口。
 
 ```bash
 npx skills add zixuanzhou0-ai/codex-pet-director --skill codex-pet-director --agent codex -g -y --copy
-npx skills add zixuanzhou0-ai/codex-pet-director --skill create-pet --agent codex -g -y --copy
+npx skills add zixuanzhou0-ai/codex-pet-director --skill jam-create-pet --agent codex -g -y --copy
 ```
 
 更推荐直接运行这个项目自带的一键安装器：
@@ -84,7 +84,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubus
 
 ### 一键安装
 
-启动入口就是 `/create-pet`。新版安装器会安装 `create-pet` 入口 skill、本地 plugin 元数据和 Codex plugin cache，让 Codex 桌面端更容易在 Skills 分组里发现它。
+启动入口就是 `/jam-create-pet`。新版安装器会安装 `jam-create-pet` 入口 skill、本地 plugin 元数据和 Codex plugin cache，让 Codex 桌面端更容易在 Skills 分组里发现它。
 
 **方式 A：让 Codex 自己安装。**
 
@@ -98,16 +98,16 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 安装完成后重启 Codex，然后在输入框里打：
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 **方式 B：用终端安装。**
 
-如果你的环境有 Skills CLI，也可以用标准 GitHub skill 安装方式。这里必须安装两个 skill，否则桌面端只会看到主流程，不一定会看到 `create-pet` 入口。
+如果你的环境有 Skills CLI，也可以用标准 GitHub skill 安装方式。这里必须安装两个 skill，否则桌面端只会看到主流程，不一定会看到 `jam-create-pet` 入口。
 
 ```bash
 npx skills add zixuanzhou0-ai/codex-pet-director --skill codex-pet-director --agent codex -g -y --copy
-npx skills add zixuanzhou0-ai/codex-pet-director --skill create-pet --agent codex -g -y --copy
+npx skills add zixuanzhou0-ai/codex-pet-director --skill jam-create-pet --agent codex -g -y --copy
 ```
 
 开发者或熟悉终端的用户也可以用本项目自带安装器。这个命令会安装完整本地 plugin 结构：
@@ -135,13 +135,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubus
 - `C:\Users\<你>\plugins\codex-pet-director`
 - `C:\Users\<你>\.agents\plugins\marketplace.json`
 - `C:\Users\<你>\.agents\skills\codex-pet-director`
-- `C:\Users\<你>\.agents\skills\create-pet`
+- `C:\Users\<你>\.agents\skills\jam-create-pet`
 - `C:\Users\<你>\.agents\.skill-lock.json`
 - `C:\Users\<你>\.codex\config.toml`
 - `C:\Users\<你>\.codex\skills\codex-pet-director`
-- `C:\Users\<你>\.codex\skills\create-pet`
+- `C:\Users\<你>\.codex\skills\jam-create-pet`
 
-脚本会先备份 `config.toml`，不会修改 Codex app 本体。安装后可以在斜杠菜单里搜索 `create-pet`，它会出现在 Skills 分组里。手动输入完整 `/create-pet` 时，Codex 可能仍显示“无命令”，这是因为第三方 skill 入口需要从菜单里选择；直接把 `/create-pet` 当普通消息发送也能启动。
+脚本会先备份 `config.toml`，不会修改 Codex app 本体。安装后可以在斜杠菜单里搜索 `jam-create-pet`，它会出现在 Skills 分组里。手动输入完整 `/jam-create-pet` 时，Codex 可能仍显示“无命令”，这是因为第三方 skill 入口需要从菜单里选择；直接把 `/jam-create-pet` 当普通消息发送也能启动。
 
 如果你是下载 ZIP 或 clone 仓库，也可以直接双击：
 
@@ -159,7 +159,7 @@ curl -fsSL https://raw.githubusercontent.com/zixuanzhou0-ai/codex-pet-director/m
 
 1. 安装这个 skill。
 2. 重启 Codex。
-3. 在斜杠菜单里搜索并选择 `create-pet`，或直接发送 `/create-pet`。
+3. 在斜杠菜单里搜索并选择 `jam-create-pet`，或直接发送 `/jam-create-pet`。
 4. 选择 `新建宠物`、`继续已有` 或 `查看已有`。
 5. 回答它是谁、是什么形态、是什么风格、长什么样。
 6. 从 2-4 张确认图里选方向，也可以说“要 A 的脸 + B 的颜色”。
@@ -266,7 +266,7 @@ Codex pets 目录：Codex 识别并加载宠物
 
 ### 安装后自检
 
-选择 `create-pet` 或发送 `/create-pet` 后，它会先让你选择新建、继续或查看。选择新建或继续后，它会检查：
+选择 `jam-create-pet` 或发送 `/jam-create-pet` 后，它会先让你选择新建、继续或查看。选择新建或继续后，它会检查：
 
 在正式检查和制作前，如果当前目录已有 `pet_brief.json`，它会先问你是继续这个草稿、查看这个草稿，还是新建一个宠物。这样不会把旧项目误当成新项目继续跑。
 
@@ -283,7 +283,7 @@ Codex pets 目录：Codex 识别并加载宠物
 安装后，在 Codex 里直接发送：
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 也可以直接说：
@@ -406,7 +406,7 @@ Codex pets 目录：Codex 识别并加载宠物
 │   │   ├── agents/
 │   │   ├── references/
 │   │   └── scripts/
-│   └── create-pet/               # Codex 桌面端斜杠菜单入口 skill
+│   └── jam-create-pet/               # Codex 桌面端斜杠菜单入口 skill
 │       ├── SKILL.md
 │       └── agents/
 ├── codex-pet-director/           # 兼容旧安装链接
@@ -415,7 +415,7 @@ Codex pets 目录：Codex 识别并加载宠物
 │   ├── references/
 │   └── scripts/
 ├── commands/
-│   └── create-pet.md
+│   └── jam-create-pet.md
 ├── .codex-plugin/
 │   └── plugin.json
 ├── assets/
@@ -450,7 +450,7 @@ Codex pets 目录：Codex 识别并加载宠物
 ```powershell
 npm test
 python C:\Users\Administrator\.codex\skills\.system\skill-creator\scripts\quick_validate.py .\skills\codex-pet-director
-python C:\Users\Administrator\.codex\skills\.system\skill-creator\scripts\quick_validate.py .\skills\create-pet
+python C:\Users\Administrator\.codex\skills\.system\skill-creator\scripts\quick_validate.py .\skills\jam-create-pet
 python C:\Users\Administrator\.codex\skills\.system\skill-creator\scripts\quick_validate.py .\codex-pet-director
 node .\scripts\validate_repository.js
 node .\scripts\test_install.js
@@ -462,5 +462,5 @@ python .\codex-pet-director\scripts\pet_brief.py languages
 python .\codex-pet-director\scripts\pet_brief.py --help
 npm pack --dry-run
 npx --yes skills list --agent codex -g
-codex debug prompt-input "/create-pet"
+codex debug prompt-input "/jam-create-pet"
 ```

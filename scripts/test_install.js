@@ -99,11 +99,11 @@ try {
   for (const root of [pluginRoot, cacheRoot]) {
     assertExists(path.join(root, ".codex-plugin", "plugin.json"));
     assertExists(path.join(root, "skills", "codex-pet-director", "SKILL.md"));
-    assertExists(path.join(root, "skills", "create-pet", "SKILL.md"));
+    assertExists(path.join(root, "skills", "jam-create-pet", "SKILL.md"));
     assertExists(path.join(root, "skills", "codex-pet-director", "scripts", "check_pet_asset_fit.py"));
     assertExists(path.join(root, "skills", "codex-pet-director", "scripts", "check_hatch_output.py"));
     assertExists(path.join(root, "skills", "codex-pet-director", "scripts", "build_hatch_handoff.py"));
-    assertExists(path.join(root, "commands", "create-pet.md"));
+    assertExists(path.join(root, "commands", "jam-create-pet.md"));
     assertExists(path.join(root, "assets", "examples", "wukong-spark", "preview.png"));
 
     const manifest = readJson(path.join(root, ".codex-plugin", "plugin.json"));
@@ -112,12 +112,12 @@ try {
   }
 
   assertExists(path.join(installRoot, "codex-pet-director", "SKILL.md"));
-  assertExists(path.join(installRoot, "create-pet", "SKILL.md"));
+  assertExists(path.join(installRoot, "jam-create-pet", "SKILL.md"));
   assertExists(path.join(installRoot, "codex-pet-director", "scripts", "check_pet_asset_fit.py"));
   assertExists(path.join(installRoot, "codex-pet-director", "scripts", "check_hatch_output.py"));
   assertExists(path.join(installRoot, "codex-pet-director", "scripts", "build_hatch_handoff.py"));
   assertExists(path.join(agentsInstallRoot, "codex-pet-director", "SKILL.md"));
-  assertExists(path.join(agentsInstallRoot, "create-pet", "SKILL.md"));
+  assertExists(path.join(agentsInstallRoot, "jam-create-pet", "SKILL.md"));
   assertExists(path.join(agentsInstallRoot, "codex-pet-director", "scripts", "check_hatch_output.py"));
   assertExists(marketplacePath);
   assertExists(configPath);
@@ -136,7 +136,7 @@ try {
 
   const lock = readJson(lockPath);
   assert(lock.skills["codex-pet-director"], "Skill lock missing codex-pet-director");
-  assert(lock.skills["create-pet"], "Skill lock missing create-pet");
+  assert(lock.skills["jam-create-pet"], "Skill lock missing jam-create-pet");
 
   console.log(`[test-install] Passed in ${tempRoot}`);
 } catch (error) {

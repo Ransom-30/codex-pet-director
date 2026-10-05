@@ -8,7 +8,7 @@
 
 ## 원클릭 설치
 
-시작 항목은 슬래시 메뉴의 Skills 그룹에 있는 `create-pet`입니다. `/create-pet`을 일반 메시지로 보내도 됩니다.
+시작 항목은 슬래시 메뉴의 Skills 그룹에 있는 `jam-create-pet`입니다. `/jam-create-pet`을 일반 메시지로 보내도 됩니다.
 
 ```text
 Run this install command for me:
@@ -18,7 +18,7 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 설치 후 Codex를 다시 시작하고 이렇게 말하세요:
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 시작하면 먼저 새로 만들기, 기존 초안 이어가기, 기존 초안 보기 중에서 선택합니다. 이전 초안을 조용히 이어가거나 바로 최종 생성을 시작하지 않습니다.
@@ -78,10 +78,10 @@ Codex pets 폴더: Codex가 펫을 인식하고 로드
 
 ## 사용 방법
 
-설치 후 슬래시 메뉴에서 `create-pet`을 검색하세요. 일반 메시지로 보낼 수도 있습니다:
+설치 후 슬래시 메뉴에서 `jam-create-pet`을 검색하세요. 일반 메시지로 보낼 수도 있습니다:
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 그다음 새로 만들기, 이어가기, 보기 중 하나를 선택한 뒤 환경 확인과 캐릭터 인터뷰를 시작합니다.

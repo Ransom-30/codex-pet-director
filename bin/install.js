@@ -7,7 +7,7 @@ const os = require("os");
 const path = require("path");
 
 const skillName = "codex-pet-director";
-const aliasSkillName = "create-pet";
+const aliasSkillName = "jam-create-pet";
 const repositorySlug = "zixuanzhou0-ai/codex-pet-director";
 const marketplaceName = "local-codex-pet-director";
 
@@ -16,8 +16,8 @@ function log(message) {
 }
 
 function printNextStep() {
-  log("Next step: restart Codex if needed, then search create-pet in the slash menu or paste this into Codex:");
-  console.log("/create-pet");
+  log("Next step: restart Codex if needed, then search jam-create-pet in the slash menu or paste this into Codex:");
+  console.log("/jam-create-pet");
 }
 
 function parseArgs(argv) {

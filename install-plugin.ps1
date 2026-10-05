@@ -13,7 +13,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $PluginName = "codex-pet-director"
-$AliasSkillName = "create-pet"
+$AliasSkillName = "jam-create-pet"
 $MarketplaceName = "local-codex-pet-director"
 
 function Write-Step {
@@ -98,7 +98,7 @@ function Test-RepoRoot {
     )
     return (
         $hasSkill -and $hasAliasSkill -and
-        (Test-Path -LiteralPath (Join-Path $Path "commands\create-pet.md")) -and
+        (Test-Path -LiteralPath (Join-Path $Path "commands\jam-create-pet.md")) -and
         (Test-Path -LiteralPath (Join-Path $Path ".codex-plugin\plugin.json"))
     )
 }
@@ -376,8 +376,8 @@ if (-not (Test-Path -LiteralPath (Join-Path $SkillSource "SKILL.md"))) {
 if (-not (Test-Path -LiteralPath (Join-Path $AliasSkillSource "SKILL.md"))) {
     throw "Could not find $AliasSkillName/SKILL.md under $RepoRoot"
 }
-if (-not (Test-Path -LiteralPath (Join-Path $CommandsSource "create-pet.md"))) {
-    throw "Could not find commands/create-pet.md under $RepoRoot"
+if (-not (Test-Path -LiteralPath (Join-Path $CommandsSource "jam-create-pet.md"))) {
+    throw "Could not find commands/jam-create-pet.md under $RepoRoot"
 }
 if (-not (Test-Path -LiteralPath $ManifestSource)) {
     throw "Could not find .codex-plugin/plugin.json under $RepoRoot"
@@ -479,4 +479,4 @@ Write-Step "Installed local plugin package metadata."
 if (-not $SkipAgentsSkillMirror) {
     Write-Step "Mirrored $PluginName and $AliasSkillName to Agents skills for skill search discovery."
 }
-Write-Step "Restart Codex if needed, then search create-pet in the slash menu or paste /create-pet as a normal message."
+Write-Step "Restart Codex if needed, then search jam-create-pet in the slash menu or paste /jam-create-pet as a normal message."

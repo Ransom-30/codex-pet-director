@@ -8,7 +8,7 @@ Pour voir la présentation visuelle complète, ouvrez [简体中文](../README.m
 
 ## Installation en une commande
 
-Le point de départ est `create-pet` dans le groupe Skills du menu `/`. Vous pouvez aussi envoyer `/create-pet` comme un message normal.
+Le point de départ est `jam-create-pet` dans le groupe Skills du menu `/`. Vous pouvez aussi envoyer `/jam-create-pet` comme un message normal.
 
 ```text
 Run this install command for me:
@@ -18,7 +18,7 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 Après l'installation, redémarrez Codex puis demandez :
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 Au démarrage, l'outil demande d'abord si vous voulez créer un nouveau pet, continuer un brouillon ou consulter un brouillon. Il ne reprend pas un ancien brouillon et ne lance pas la production finale automatiquement.
@@ -78,10 +78,10 @@ Dossier pets de Codex : Codex détecte et charge le pet
 
 ## Utilisation
 
-Après l'installation, cherchez `create-pet` dans le menu `/`. Vous pouvez aussi envoyer :
+Après l'installation, cherchez `jam-create-pet` dans le menu `/`. Vous pouvez aussi envoyer :
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 Choisissez ensuite créer, continuer ou consulter, puis l'outil lance la vérification d'environnement et l'entretien du personnage.

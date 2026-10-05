@@ -1,4 +1,4 @@
 interface:
   display_name: "Codex Pet Director"
   short_description: "Create official custom Codex desktop pets."
-  default_prompt: "/create-pet"
+  default_prompt: "/jam-create-pet"

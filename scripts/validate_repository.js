@@ -110,7 +110,7 @@ function main() {
 
   for (const skill of [
     "skills/codex-pet-director/SKILL.md",
-    "skills/create-pet/SKILL.md",
+    "skills/jam-create-pet/SKILL.md",
     "codex-pet-director/SKILL.md",
   ]) {
     assertSkillFrontmatter(skill);

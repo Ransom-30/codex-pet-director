@@ -15,11 +15,11 @@ Codex chat:
 npx --yes github:zixuanzhou0-ai/codex-pet-director
 ```
 
-Skills CLI. Install both skills so Codex Desktop can find the `create-pet` entry:
+Skills CLI. Install both skills so Codex Desktop can find the `jam-create-pet` entry:
 
 ```bash
 npx skills add zixuanzhou0-ai/codex-pet-director --skill codex-pet-director --agent codex -g -y --copy
-npx skills add zixuanzhou0-ai/codex-pet-director --skill create-pet --agent codex -g -y --copy
+npx skills add zixuanzhou0-ai/codex-pet-director --skill jam-create-pet --agent codex -g -y --copy
 ```
 
 GitHub project installer:
@@ -93,5 +93,5 @@ Codex Pet Director v0.5.6
 Short release description:
 
 ```text
-Adds Action Director and the production QA loop: create-pet now collects special motion requests, completes the 9 official actions, checks a 192x208-ready production_base with preview/report files, hands the locked brief to hatch-pet, and verifies the final spritesheet package.
+Adds Action Director and the production QA loop: jam-create-pet now collects special motion requests, completes the 9 official actions, checks a 192x208-ready production_base with preview/report files, hands the locked brief to hatch-pet, and verifies the final spritesheet package.
 ```

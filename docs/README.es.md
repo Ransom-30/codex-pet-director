@@ -8,7 +8,7 @@ Para ver la muestra visual completa, abre [简体中文](../README.md#真实案�
 
 ## Instalación con un comando
 
-La entrada de inicio es `create-pet` en el grupo Skills del menú `/`. También puedes enviar `/create-pet` como un mensaje normal.
+La entrada de inicio es `jam-create-pet` en el grupo Skills del menú `/`. También puedes enviar `/jam-create-pet` como un mensaje normal.
 
 ```text
 Run this install command for me:
@@ -18,7 +18,7 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 Después de instalar, reinicia Codex y escribe:
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 Al iniciar, primero pregunta si quieres crear una mascota nueva, continuar un borrador existente o revisar un borrador. No continúa borradores antiguos ni empieza producción final automáticamente.
@@ -78,10 +78,10 @@ Carpeta pets de Codex: Codex detecta y carga la mascota
 
 ## Uso
 
-Después de instalar, busca `create-pet` en el menú `/`. También puedes enviar:
+Después de instalar, busca `jam-create-pet` en el menú `/`. También puedes enviar:
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 Después eliges crear, continuar o revisar, y solo entonces empieza la comprobación del entorno y la entrevista del personaje.

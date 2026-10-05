@@ -8,7 +8,7 @@
 
 ## ワンクリックインストール
 
-開始入口はスラッシュメニューの Skills にある `create-pet` です。`/create-pet` を通常のメッセージとして送っても使えます。
+開始入口はスラッシュメニューの Skills にある `jam-create-pet` です。`/jam-create-pet` を通常のメッセージとして送っても使えます。
 
 ```text
 Run this install command for me:
@@ -18,7 +18,7 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 インストール後に Codex を再起動し、次のように依頼します：
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 起動後はまず新規作成、既存下書きの続行、既存下書きの確認を選びます。古い下書きを勝手に続行したり、すぐ本番生成を始めたりしません。
@@ -78,10 +78,10 @@ Codex pets フォルダ：Codex がペットを読み込む
 
 ## 使い方
 
-インストール後はスラッシュメニューで `create-pet` を検索します。通常メッセージとして送ることもできます：
+インストール後はスラッシュメニューで `jam-create-pet` を検索します。通常メッセージとして送ることもできます：
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 その後、新規作成、続行、確認を選んでから、環境チェックとキャラクター質問に進みます。

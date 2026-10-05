@@ -1,6 +1,6 @@
 ---
 name: codex-pet-director
-description: Create a custom official Codex desktop pet from /create-pet, text, reference images, or named characters. Guides environment checks, beginner interviews, web reference research, confirmation images, Action Director for 9 official actions, and hatch-pet handoff.
+description: Create a custom official Codex desktop pet from /jam-create-pet, text, reference images, or named characters. Guides environment checks, beginner interviews, web reference research, confirmation images, Action Director for 9 official actions, and hatch-pet handoff.
 metadata:
   short-description: Create custom Codex desktop pets
 ---
@@ -17,16 +17,16 @@ Core production principle: the user's request is the creative target, and the of
 
 ## Start Command
 
-Treat `/create-pet` as the formal entry signal for this skill, not as permission to begin production. If the user's message is only `/create-pet`, `create-pet`, or "开始创建宠物", open a safe launcher first:
+Treat `/jam-create-pet` as the formal entry signal for this skill, not as permission to begin production. If the user's message is only `/jam-create-pet`, `jam-create-pet`, or "开始创建宠物", open a safe launcher first:
 
 1. Say this is Codex Pet Director for creating official Codex desktop pets.
 2. If the current folder contains `pet_brief.json`, say an existing draft was found.
 3. Ask the user to choose `新建宠物`, `继续已有`, or `查看已有`.
 4. Wait for the user's choice before running the full environment check, writing a brief, generating images, loading `$hatch-pet`, or continuing an existing draft.
 
-If the user includes a clear design request in the same message, such as `/create-pet 做一只蓝色机器人猫`, treat that as choosing `新建宠物` and start the full creation flow from the environment check.
+If the user includes a clear design request in the same message, such as `/jam-create-pet 做一只蓝色机器人猫`, treat that as choosing `新建宠物` and start the full creation flow from the environment check.
 
-If Codex receives `/create-pet` as plain text rather than a native slash command, handle it exactly the same way.
+If Codex receives `/jam-create-pet` as plain text rather than a native slash command, handle it exactly the same way.
 
 ## Hard Boundaries
 
@@ -229,7 +229,7 @@ Review `output_check.json`, `contact-sheet.png`, and every row GIF using `refere
 
 ## Acceptance Criteria
 
-- A bare `/create-pet` starts with a mode choice, not automatic production.
+- A bare `/jam-create-pet` starts with a mode choice, not automatic production.
 - Existing `pet_brief.json` files are never resumed or overwritten silently.
 - The full creation flow starts with an environment check after the user chooses `新建宠物` or `继续已有`.
 - The user's language is inferred or confirmed, recorded in `pet_brief.json`, and can be switched without restarting.

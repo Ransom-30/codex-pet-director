@@ -1,0 +1,4 @@
+interface:
+  display_name: "jam-create-pet"
+  short_description: "Start custom Codex pet creation."
+  default_prompt: "/jam-create-pet"

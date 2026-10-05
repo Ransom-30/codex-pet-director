@@ -18,7 +18,7 @@
 
 ## One-Click Install
 
-The start entry is `create-pet` in the Skills slash menu. You can also send `/create-pet` as a normal chat message.
+The start entry is `jam-create-pet` in the Skills slash menu. You can also send `/jam-create-pet` as a normal chat message.
 
 **Option A: ask Codex to install it.**
 
@@ -32,7 +32,7 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 After installation, restart Codex and paste this:
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 **Option B: install from a terminal.**
@@ -41,7 +41,7 @@ If your environment has the Skills CLI, install both skills. The first is the ma
 
 ```bash
 npx skills add zixuanzhou0-ai/codex-pet-director --skill codex-pet-director --agent codex -g -y --copy
-npx skills add zixuanzhou0-ai/codex-pet-director --skill create-pet --agent codex -g -y --copy
+npx skills add zixuanzhou0-ai/codex-pet-director --skill jam-create-pet --agent codex -g -y --copy
 ```
 
 The recommended terminal path is this repository's installer:
@@ -76,7 +76,7 @@ The shell installer is a fallback for skills-only installation. For the full loc
 
 1. Install the skill.
 2. Restart Codex.
-3. Search and select `create-pet` in the slash menu, or send `/create-pet`.
+3. Search and select `jam-create-pet` in the slash menu, or send `/jam-create-pet`.
 4. Choose whether to create a new pet, continue an existing draft, or inspect an existing draft.
 5. Answer who it is, what form it has, what style it should use, and what it looks like.
 6. Pick from 2-4 confirmation images, or mix choices like "A's face + B's colors".
@@ -186,7 +186,7 @@ The installer safely creates missing local folders when possible. It does not mo
 
 ## Post-Install Check
 
-When the user selects `create-pet` or sends `/create-pet`, it first asks whether to create a new pet, continue an existing draft, or inspect an existing draft. After the user chooses create or continue, the skill checks:
+When the user selects `jam-create-pet` or sends `/jam-create-pet`, it first asks whether to create a new pet, continue an existing draft, or inspect an existing draft. After the user chooses create or continue, the skill checks:
 
 - whether the machine is Windows, macOS, or Linux
 - whether Codex `skills` and `pets` folders exist
@@ -198,13 +198,13 @@ If something is missing, it explains the missing piece. If only safe local folde
 
 ## Usage
 
-After installation, search `create-pet` in the Codex slash menu. You can also send:
+After installation, search `jam-create-pet` in the Codex slash menu. You can also send:
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
-If manually typed `/create-pet` still shows "No commands", select `create-pet` from the Skills group instead, or send it as normal text. You can also say:
+If manually typed `/jam-create-pet` still shows "No commands", select `jam-create-pet` from the Skills group instead, or send it as normal text. You can also say:
 
 ```text
 I have a reference image. Turn it into an official Codex desktop pet.

@@ -8,7 +8,7 @@ Die vollständige visuelle Showcase-Seite findest du auf [简体中文](../READM
 
 ## Installation mit einem Befehl
 
-Der Einstieg ist `create-pet` im Skills-Bereich des Slash-Menüs. Du kannst auch `/create-pet` als normale Nachricht senden.
+Der Einstieg ist `jam-create-pet` im Skills-Bereich des Slash-Menüs. Du kannst auch `/jam-create-pet` als normale Nachricht senden.
 
 ```text
 Run this install command for me:
@@ -18,7 +18,7 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 Starte Codex nach der Installation neu und schreibe dann:
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 Beim Start fragt das Tool zuerst, ob du ein neues Pet erstellen, einen vorhandenen Entwurf fortsetzen oder einen Entwurf ansehen willst. Es setzt alte Entwürfe nicht stillschweigend fort und startet keine finale Produktion automatisch.
@@ -78,10 +78,10 @@ Codex pets Ordner: Codex erkennt und lädt das Pet
 
 ## Nutzung
 
-Nach der Installation suche `create-pet` im Slash-Menü. Du kannst auch senden:
+Nach der Installation suche `jam-create-pet` im Slash-Menü. Du kannst auch senden:
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 Danach wählst du Erstellen, Fortsetzen oder Ansehen. Erst dann beginnt die Umgebungsprüfung und die Charakterbefragung.

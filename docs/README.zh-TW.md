@@ -8,7 +8,7 @@
 
 ## 一鍵安裝
 
-啟動入口是在斜線選單裡搜尋 `create-pet`。你也可以把 `/create-pet` 當普通訊息發出去。
+啟動入口是在斜線選單裡搜尋 `jam-create-pet`。你也可以把 `/jam-create-pet` 當普通訊息發出去。
 
 ```text
 請執行這個安裝命令，幫我安裝 Codex Pet Director：
@@ -18,7 +18,7 @@ npx --yes github:zixuanzhou0-ai/codex-pet-director
 安裝完成後重啟 Codex，然後直接說：
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 啟動後會先讓你選擇新建、繼續或查看，不會直接續跑舊草稿或開始正式生成。
@@ -78,10 +78,10 @@ Codex pets 目錄：Codex 識別並載入寵物
 
 ## 使用方式
 
-安裝後，在 Codex 斜線選單裡搜尋並選擇 `create-pet`。也可以直接發送：
+安裝後，在 Codex 斜線選單裡搜尋並選擇 `jam-create-pet`。也可以直接發送：
 
 ```text
-/create-pet
+/jam-create-pet
 ```
 
 接著選擇新建、繼續或查看，再開始環境檢查和角色訪談。
