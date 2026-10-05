@@ -150,3 +150,7 @@ Update only the requested actions and show the revised action card.
 ## Generated Action Review
 
 Use [action-review.md](action-review.md) for independent left/right angles, motion and facial consistency checks, and review choices after generation. Action-card approval approves intent only; generated rows still require visual QA and acceptance.
+
+## Production Motion Plan
+
+After agreeing on action intent, use [motion-planning.md](motion-planning.md) to plan feasible key poses and intermediate frames for each official row. Store `motion_plan`, derive the ordered `beat_sheet`, and pass the full numbered plan and relevant locks into `prompt_notes`. Action review and generation follow this plan; the plan itself cannot earn a QA pass.

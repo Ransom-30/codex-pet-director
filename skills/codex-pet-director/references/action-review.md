@@ -120,3 +120,24 @@ Across relevant actions, inspect joints for abrupt inversion, detached connectio
 In addition to each row's loop seam, review the state transitions supported by the existing runtime, especially idle into motion/gesture and return where applicable. Compare alignment, character scale, facial identity and detail treatment across row endpoints. Reject unintended position/scale jumps or identity/material changes. An intentional state-specific pose change may occur, but should remain visually coherent; do not demand every action start in the same pose or add unsupported transition frames/states to the official format.
 
 Use an available runtime preview to assess actual switching behavior. If only rows can be inspected, review their boundary poses as partial evidence and explicitly report runtime transitions as unverified. A change to shared alignment, base design or timing requires re-review of all affected rows and transitions, including after a targeted redo.
+
+## How To Generate The Eight-Frame Alternating Run
+
+Before requesting a directional run row, write a numbered eight-frame plan tied to anatomical sides. Do not prompt only "4+4 frames" or generate one pose and mirror/duplicate it to fill the row. Use the approved production base and locks as the canonical reference in the supported hatch-pet workflow. Supply the full cycle plan to the row generator; the phases below are a default stylized biped run example, not immutable physical timing.
+
+| Frame | Leg-led phase | Arm coordination and body response |
+| --- | --- | --- |
+| 1 | Anatomical left foot reaches forward and contacts the support; right leg trails. | Right arm forward, left arm back; torso enters loading. |
+| 2 | Left support loads then progresses toward push-off; right leg recovers forward. | Arms progress smoothly toward crossover; body compresses then begins rising. |
+| 3 | Left push-off transitions to the intended swing/flight phase; right leg advances. | Arms cross continuously toward left-arm-forward; no new limb shapes. |
+| 4 | Right foot approaches the next contact; left leg trails/recovering. | Left arm increasingly forward, right arm back; body approaches loading. |
+| 5 | Anatomical right foot contacts; left leg trails. | Left arm forward, right arm back; role reversal of frame 1. |
+| 6 | Right support loads then progresses toward push-off; left leg recovers forward. | Arms progress toward crossover; body response matches frame 2's role-reversed phase. |
+| 7 | Right push-off transitions to the intended swing/flight phase; left leg advances. | Arms cross toward right-arm-forward; preserve canonical proportions. |
+| 8 | Left foot approaches the next contact, completing the loop into frame 1. | Right arm increasingly forward, left arm back; smooth contact/torso continuation into frame 1. |
+
+Use perspective and occlusion appropriate to each row's independently approved angle. Label anatomical sides consistently across all frames; screen-left/right is not a substitute. Adjust the template to the actual gait/reference, especially short-limbed plush construction, without forcing unreachable strides, flight or humanoid joints. Distinguish frame 4 (approach) from frame 5 (contact) and frame 8 (approach) from frame 1 (contact), rather than duplicating boundary poses.
+
+Include these row-prompt constraints: exactly 8 active sequential frames in official order; one complete alternating cycle; distinct evolving contact/loading/push-off/recovery samples on both sides; opposite free arm/leg swing; stable camera and scale; locked anatomy/materials/face; no duplicate padding, single-frame leg swaps, blur or stretched limbs. Explicitly describe the approved stride amplitude and view angle. Do not add extra official frames, run independent unconstrained character redesigns per cell, or introduce a custom generation pipeline outside hatch-pet.
+
+After generation, compare the actual frames with the numbered plan. Record observed leg support/swing and arm direction per frame, marking obscured evidence as uncertain rather than inventing it. Inspect temporal progression and the 8-to-1 seam; an eight-cell output is not proof that the plan was followed. A missing half-cycle, unexplained phase reversal, same-side swing or duplicated padding fails QA. Diagnose the offending frames, revise the affected row's prompt/beat sheet, regenerate through the supported workflow, and repeat the complete row QA. If detailed timing cannot fit the fixed budget, simplify the gait or stride while retaining a complete readable cycle.

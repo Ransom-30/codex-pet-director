@@ -105,6 +105,7 @@ def action_manifest(brief: dict[str, Any]) -> dict[str, dict[str, Any]]:
             "source": get_path(brief, f"actions.{action}.source") or "",
             "user_answer": get_path(brief, f"actions.{action}.user_answer") or "",
             "summary": get_path(brief, f"actions.{action}.summary") or "",
+            "motion_plan": get_path(brief, f"actions.{action}.motion_plan") or {},
             "view_angle": get_path(brief, f"actions.{action}.view_angle") or "",
             "qa": get_path(brief, f"actions.{action}.qa") or {},
             "revision_history": get_path(brief, f"actions.{action}.revision_history") or [],
@@ -121,6 +122,11 @@ def action_card(actions: dict[str, dict[str, Any]]) -> list[str]:
         beats = data.get("beat_sheet") or []
         beat_text = compact_join([str(beat) for beat in beats])
         line = f"{action}: {direction}"
+        plan = data.get("motion_plan") or {}
+        if plan.get("frame_plan"):
+            line += " Frame plan: " + "; ".join(f"{i}: {beat}" for i, beat in enumerate(plan["frame_plan"], 1))
+        if plan.get("qa_focus"):
+            line += " QA focus: " + compact_join([str(item) for item in plan["qa_focus"]])
         if data.get("view_angle"):
             line += f" View angle: {data['view_angle']}."
         if beat_text:

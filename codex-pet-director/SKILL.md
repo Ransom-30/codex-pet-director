@@ -181,6 +181,8 @@ Preview key actions before final production when visual generation budget allows
 
 Use `references/action-review.md` for independent left/right view angles, identity locks, per-frame motion and clarity QA, and immediate row revisions. The initially confirmed extracted character and its approved production base define a mandatory consistency contract: lock underlying proportions, camera scale, material/texture, rendering treatment and identity details across every frame, action and redo. Record concrete locks in `appearance.visual_locks` and pass them to all row prompts; unexplained deviations fail QA. Record each action's `view_angle`, `qa`, and `revision_history`; carry angles and locks into row prompts. After generation, show review choices and allow targeted changes without restarting the interview. Every redo invalidates that action's prior QA and acceptance; rerun structural, per-frame clarity/identity, and animated-motion QA on the replacement before user acceptance and replacement of the accepted version.
 
+Before generating any row, use `references/motion-planning.md` to build an action-specific `motion_plan`: feasible key poses, a numbered plan for the official active frame count, relevant constraints and QA focus. Derive `beat_sheet` and `prompt_notes` from it and carry the complete plan into generation. Plan intermediate motion rather than morphing endpoints; do not force the run template on other actions.
+
 ### 5. Hand Off To Hatch Pet
 
 When the user has confirmed:
@@ -221,6 +223,7 @@ Review `output_check.json`, `contact-sheet.png`, and every row GIF using `refere
 - `references/architecture.md`: bottom architecture, component roles, and design rationale.
 - `references/style-menu.md`: style choices and internal visual translations.
 - `references/action-director.md`: user intent collection, action recommendation, action card, and preview policy.
+- `references/motion-planning.md`: universal key-pose and intermediate-frame planning, generation inputs, compound-motion limits and targeted revision.
 - `references/action-review.md`: independent movement angles, per-frame QA, and generated-action revision loop.
 - `references/action-guide.md`: official action slots, frame counts, and form adaptation.
 - `references/image-confirmation-flow.md`: staged confirmation image policy.

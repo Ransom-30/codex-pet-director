@@ -111,3 +111,5 @@ Also block completion if the run used anything other than `confirmations.product
 ## Visual Acceptance And Revisions
 
 Follow [action-review.md](action-review.md) after generating any preview or final row. Carry its identity, gait, loop and sharpness requirements into hatch-pet row prompts. Inspect every active frame and animated row, including both running directions; structural output checks do not prove motion or face consistency. Record per-row QA evidence, show actionable revision choices, and route requested changes back through hatch-pet for only affected rows. Completion requires current visual QA passes and user acceptance of the displayed action set.
+
+Carry each action's `motion_plan` with its numbered frame plan, key poses, constraints and QA focus into the row-generation request, alongside `beat_sheet` and `prompt_notes`. Use `motion-planning.md` before generation or redo; do not replace planned intermediate motion with unconstrained endpoint morphing.

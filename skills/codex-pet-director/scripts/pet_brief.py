@@ -207,6 +207,7 @@ def default_brief(language: str = "zh-CN") -> dict[str, Any]:
                 "summary": "",
                 "prompt_notes": "",
                 "view_angle": "",
+                "motion_plan": {"intent": "", "playback": "", "constraints": [], "reference_notes": "", "key_poses": [], "frame_plan": [], "qa_focus": []},
                 "qa": {"status": "unreviewed", "artifact": "", "issues": []},
                 "revision_history": [],
             }
