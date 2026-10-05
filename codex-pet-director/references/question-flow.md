@@ -198,7 +198,7 @@ For every action, record:
 - `source`: `user`, `mixed`, or `recommended`
 - `preview_required`: true for key actions selected for preview
 
-Default key previews: `idle`, `running-right`, `failed`, and `review`. Add `jumping` for motion-heavy full-body pets. Add `waiting` or `waving` for half-body, head-only, screen-face, or expression-heavy pets.
+Default key previews: `idle`, `running-right`, `running-left`, `failed`, and `review`. Add `jumping` for motion-heavy full-body pets. Add `waiting` or `waving` for half-body, head-only, screen-face, or expression-heavy pets.
 
 Do not hand off until the user confirms the action card. If the user revises one action, update only that action and show the revised card.
 

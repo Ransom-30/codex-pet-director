@@ -206,6 +206,9 @@ def default_brief(language: str = "zh-CN") -> dict[str, Any]:
                 "user_answer": "",
                 "summary": "",
                 "prompt_notes": "",
+                "view_angle": "",
+                "qa": {"status": "unreviewed", "artifact": "", "issues": []},
+                "revision_history": [],
             }
             for action, frames in ACTION_FRAMES.items()
         },

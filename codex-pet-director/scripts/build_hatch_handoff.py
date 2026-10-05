@@ -75,6 +75,7 @@ def style_notes(brief: dict[str, Any]) -> str:
     return compact_join(
         [
             "Maximum likeness within official Codex pet limits: preserve the strongest user-requested identity cues while simplifying details that fail at 192x208.",
+            "Inspect every active frame and animated loop for coherent motion, stable facial identity across directions, and native-size sharpness; structural QA alone is insufficient. Offer targeted action revisions after previews and final generation.",
             "Use the production_base image as the only canonical production reference; formal_character_image and concept images are auxiliary only.",
             f"Selected style: {compact_join(as_list(get_path(brief, 'style.selected')))}",
             f"Style notes: {get_path(brief, 'style.notes') or ''}",
@@ -100,6 +101,9 @@ def action_manifest(brief: dict[str, Any]) -> dict[str, dict[str, Any]]:
             "source": get_path(brief, f"actions.{action}.source") or "",
             "user_answer": get_path(brief, f"actions.{action}.user_answer") or "",
             "summary": get_path(brief, f"actions.{action}.summary") or "",
+            "view_angle": get_path(brief, f"actions.{action}.view_angle") or "",
+            "qa": get_path(brief, f"actions.{action}.qa") or {},
+            "revision_history": get_path(brief, f"actions.{action}.revision_history") or [],
             "prompt_notes": get_path(brief, f"actions.{action}.prompt_notes") or "",
         }
     return actions
@@ -113,6 +117,8 @@ def action_card(actions: dict[str, dict[str, Any]]) -> list[str]:
         beats = data.get("beat_sheet") or []
         beat_text = compact_join([str(beat) for beat in beats])
         line = f"{action}: {direction}"
+        if data.get("view_angle"):
+            line += f" View angle: {data['view_angle']}."
         if beat_text:
             line += f" Beats: {beat_text}"
         line += f" Source: {source}."

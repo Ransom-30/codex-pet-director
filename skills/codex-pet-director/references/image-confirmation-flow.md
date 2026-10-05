@@ -14,7 +14,7 @@ Default counts:
 - Form comparison: 2-3 images
 - Style comparison: 2-4 images
 - Formal character image: 1-2 images
-- Key action preview: only selected key rows by default, usually `idle`, `running-right`, `failed`, and `review`
+- Key action preview: only selected key rows by default, usually `idle`, `running-right`, `running-left`, `failed`, and `review`
 
 Goal: help the user choose direction, form, style, expression, and major action personality.
 

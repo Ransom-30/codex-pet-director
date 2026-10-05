@@ -50,6 +50,7 @@ Use:
 - `confirmations.production_base_preview` as the user-approved 192x208 readability preview.
 - `confirmations.production_base_report` as the fit review report.
 - `confirmations.formal_character_image` as auxiliary intent only, not the production base.
+- `actions.*.view_angle` as independent camera notes for each direction, copied into row prompts.
 - `actions.*.final_direction`, `actions.*.beat_sheet`, `actions.*.source`, and `actions.*.prompt_notes` as row-specific notes.
 
 If no display name exists, ask for one or propose 3 short names.
@@ -106,3 +107,7 @@ Review:
 Block completion if the character identity drifts, background is not clean, unused cells are not transparent, or official action rows do not match the expected frame counts.
 
 Also block completion if the run used anything other than `confirmations.production_base` as the main `--reference` for `prepare_pet_run.py`.
+
+## Visual Acceptance And Revisions
+
+Follow [action-review.md](action-review.md) after generating any preview or final row. Carry its identity, gait, loop and sharpness requirements into hatch-pet row prompts. Inspect every active frame and animated row, including both running directions; structural output checks do not prove motion or face consistency. Record per-row QA evidence, show actionable revision choices, and route requested changes back through hatch-pet for only affected rows. Completion requires current visual QA passes and user acceptance of the displayed action set.

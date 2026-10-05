@@ -128,7 +128,7 @@ Examples:
 
 Do not preview all 9 actions by default. Preview the rows that most affect user confidence:
 
-- Always preview: `idle`, `running-right`, `failed`, `review`.
+- Always preview: `idle`, `running-right`, `running-left`, `failed`, `review`.
 - Add `jumping` for full-body pets when the character is motion-heavy.
 - Add `waiting` or `waving` for half-body, head-only, or screen-face pets when expression is more important than locomotion.
 
@@ -146,3 +146,7 @@ Accept short natural edits:
 - `失败不要难过，要生气`
 
 Update only the requested actions and show the revised action card.
+
+## Generated Action Review
+
+Use [action-review.md](action-review.md) for independent left/right angles, motion and facial consistency checks, and review choices after generation. Action-card approval approves intent only; generated rows still require visual QA and acceptance.

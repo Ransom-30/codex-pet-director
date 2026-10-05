@@ -175,7 +175,9 @@ Adapt movement to the pet form. A half-body pet, screen face, floating object, o
 
 Show a complete action card and ask the user to confirm or revise it. Accept natural short edits such as `改 failed`, `waving 改成点头`, or `running-left 不要镜像`. Do not hand off until all 9 official actions have `final_direction`.
 
-Preview key actions before final production when visual generation budget allows. Default preview rows are `idle`, `running-right`, `failed`, and `review`; add `jumping` for full-body motion-heavy pets, or `waiting`/`waving` for half-body, head-only, or screen-face pets.
+Preview key actions before final production when visual generation budget allows. Default preview rows are `idle`, `running-right`, `running-left`, `failed`, and `review`; add `jumping` for full-body motion-heavy pets, or `waiting`/`waving` for half-body, head-only, or screen-face pets.
+
+Use `references/action-review.md` for independent left/right view angles, identity locks, per-frame motion and clarity QA, and immediate row revisions. Record each action's `view_angle`, `qa`, and `revision_history`; carry angles and locks into row prompts. After generation, show review choices and allow targeted changes without restarting the interview. Every redo invalidates that action's prior QA and acceptance; rerun structural, per-frame clarity/identity, and animated-motion QA on the replacement before user acceptance and replacement of the accepted version.
 
 ### 5. Hand Off To Hatch Pet
 
@@ -206,7 +208,7 @@ After `$hatch-pet` finalizes the installed pet folder, run:
 python "${CODEX_HOME:-$HOME/.codex}/skills/codex-pet-director/scripts/check_hatch_output.py" --pet-dir /absolute/path/to/pet --output-dir /absolute/path/to/director-qa
 ```
 
-Review `output_check.json`, `contact-sheet.png`, and the row GIFs before calling the pet complete.
+Review `output_check.json`, `contact-sheet.png`, and every row GIF using `references/action-review.md`. Structural success alone is insufficient: all current rows must pass visual/motion QA and the user must accept the current action set before calling the pet complete.
 
 ## Reference Files
 
@@ -217,6 +219,7 @@ Review `output_check.json`, `contact-sheet.png`, and the row GIFs before calling
 - `references/architecture.md`: bottom architecture, component roles, and design rationale.
 - `references/style-menu.md`: style choices and internal visual translations.
 - `references/action-director.md`: user intent collection, action recommendation, action card, and preview policy.
+- `references/action-review.md`: independent movement angles, per-frame QA, and generated-action revision loop.
 - `references/action-guide.md`: official action slots, frame counts, and form adaptation.
 - `references/image-confirmation-flow.md`: staged confirmation image policy.
 - `references/handoff-to-hatch-pet.md`: final production handoff.

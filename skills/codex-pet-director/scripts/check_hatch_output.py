@@ -116,6 +116,28 @@ def write_row_gifs(atlas: Image.Image, output_dir: Path) -> list[str]:
     return paths
 
 
+def write_action_frames(atlas: Image.Image, output_dir: Path) -> dict[str, Any]:
+    """Export lossless active frames and native/nearest-neighbor row previews."""
+    artifacts: dict[str, Any] = {}
+    for row, (action, count) in enumerate(ACTION_FRAMES.items()):
+        action_dir = output_dir / "frames" / action
+        action_dir.mkdir(parents=True, exist_ok=True)
+        strip = Image.new("RGBA", (CELL_WIDTH * count, CELL_HEIGHT))
+        paths = []
+        for column in range(count):
+            cell = frame_crop(atlas, row, column)
+            path = action_dir / f"frame-{column + 1:02d}.png"
+            cell.save(path)
+            paths.append(str(path))
+            strip.paste(cell, (CELL_WIDTH * column, 0))
+        strip_path = action_dir / "frames.png"
+        enlarged_path = action_dir / "frames-4x.png"
+        strip.save(strip_path)
+        strip.resize((strip.width * 4, strip.height * 4), Image.Resampling.NEAREST).save(enlarged_path)
+        artifacts[action] = {"frames": paths, "strip": str(strip_path), "strip_4x": str(enlarged_path)}
+    return artifacts
+
+
 def inspect_atlas(atlas: Image.Image) -> tuple[list[str], list[str], dict[str, Any]]:
     failures: list[str] = []
     warnings: list[str] = []
@@ -200,6 +222,7 @@ def check_package(pet_dir: Path, output_dir: Path) -> dict[str, Any]:
         write_contact_sheet(atlas, contact_sheet)
         artifacts["contact_sheet"] = str(contact_sheet)
         artifacts["row_gifs"] = write_row_gifs(atlas, output_dir)
+        artifacts["action_frames"] = write_action_frames(atlas, output_dir)
 
     report = {
         "status": "fail" if failures else "pass",
