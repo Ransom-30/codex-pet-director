@@ -76,7 +76,7 @@ Mirror only when all are true:
 - lighting or markings do not become confusing
 - the user has not asked for a different left movement
 
-Otherwise, make `running-left` a separate action direction.
+Otherwise, generate `running-left` separately while keeping a matching mirrored camera angle, elevation and scale. Separate generation does not imply a different viewing angle. Unequal angles require a user request.
 
 ## Beat Examples
 
@@ -117,8 +117,4 @@ Use frame beats when writing prompts.
 
 ## Directional Run Cycle Coverage
 
-Both directional rows use 8 active frames. An alternating legged run must depict a complete cycle with multiple evolving poses for each leg-led half, not a single swapped-leg frame among repeated stances. See [action-review.md](action-review.md) for the default 4+4 phase planning template, locomotion exceptions, and mandatory whole-loop QA after generation and redo.
-
-Ordinary biped runs with free arm swing use opposing anatomical arm/leg coordination; check both half-cycles and the loop seam for accidental 顺拐. Prop-held or intentionally fixed arms follow the approved action instead. See `action-review.md`.
-
-Before generating a directional run, use the numbered eight-frame gait plan and row-prompt constraints in `action-review.md` (How To Generate The Eight-Frame Alternating Run), adapt it to the character, and verify actual phase coverage after generation. The shorthand 4+4 alone is insufficient.
+Both directional rows use 8 active frames. Keep a readable complete running cycle with natural leg alternation and arm coordination. Use matching mirrored view angles and consistent scale unless the user requests otherwise. Review them within the normal batch check; no fixed 4+4 pose template is required.

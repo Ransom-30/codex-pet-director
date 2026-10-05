@@ -171,6 +171,8 @@ Official states:
 
 For every official action, record `special_request`, `recommended`, `final_direction`, `beat_sheet`, `preview_required`, `preview_confirmed`, and `source` in `pet_brief.json`. Mark `source` as `user`, `mixed`, or `recommended`.
 
+For paired left/right running, default to matching mirrored view angles: the same degree of profile/three-quarter turn, camera elevation and character scale. Change travel direction while preserving asymmetric character details on their correct anatomical sides. Use unequal angles only when the user requests them. Include this comparison in the existing batch review, not a separate QA round.
+
 Use the approved production base for all actions. Keep the character recognizable, with consistent proportions, clothing, colors and style. Adapt gestures to its existing body; do not add parts or stretch limbs to complete a movement. Allow natural perspective, occlusion, expressions and stylized motion.
 
 Summarize the nine action directions in one compact card. Use existing user choices and fill unspecified actions naturally. Ask for confirmation only if intent is still unclear; an explicit request to produce an agreed set is sufficient to continue.
