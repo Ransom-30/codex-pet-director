@@ -114,3 +114,9 @@ Use frame beats when writing prompts.
 - Keep every pose inside one 192x208 cell.
 - If `running-left` would break an asymmetric design when mirrored, generate it separately.
 - Record a final direction and beat sheet for every official action before handoff.
+
+## Directional Run Cycle Coverage
+
+Both directional rows use 8 active frames. An alternating legged run must depict a complete cycle with multiple evolving poses for each leg-led half, not a single swapped-leg frame among repeated stances. See [action-review.md](action-review.md) for the default 4+4 phase planning template, locomotion exceptions, and mandatory whole-loop QA after generation and redo.
+
+Ordinary biped runs with free arm swing use opposing anatomical arm/leg coordination; check both half-cycles and the loop seam for accidental 顺拐. Prop-held or intentionally fixed arms follow the approved action instead. See `action-review.md`.

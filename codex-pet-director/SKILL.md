@@ -171,7 +171,7 @@ Official states:
 
 For every official action, record `special_request`, `recommended`, `final_direction`, `beat_sheet`, `preview_required`, `preview_confirmed`, and `source` in `pet_brief.json`. Mark `source` as `user`, `mixed`, or `recommended`.
 
-Lock the canonical limb inventory and appendage shapes, including absent hands/fingers, in `appearance.visual_locks`. Action names never authorize new anatomy: rounded plush arm ends must remain rounded, and characters without hands or fingers must not acquire them. Any unsupported anatomy in any frame fails QA. Use coordinated head/torso movement for reachable gestures such as touching a cap; never force an arm to elongate to reach. Head movement is allowed while preserving identity and underlying proportions. Abnormal limb stretching or implausible contact fails QA on both initial generation and every redo.
+Use the initial confirmed character and its approved production base as the anatomy and proportion contract for all actions and redos: change the pose, not the design. Lock every body part's underlying length, thickness, shape and attachment, including limb inventory and absent hands/fingers, in `appearance.visual_locks`. Action names never authorize new anatomy: rounded plush arm ends must remain rounded, and characters without hands or fingers must not acquire them. Any unsupported anatomy in any frame fails QA. Require plausible motion for every action within the character's established anatomy, joint range, balance and movement style. Coordinate head, torso and existing limbs, or adapt the gesture, instead of stretching limbs, shifting attachments or inventing anatomy to achieve a pose. Perspective and approved stylization may change projected shapes but cannot excuse accidental deformation. Impossible poses, abnormal elongation and implausible contact fail QA on initial generation and every redo.
 
 Adapt movement to the pet form. A half-body pet, screen face, floating object, or object mascot does not need literal legs; translate movement into drifting, bouncing, tilting, sliding, jetting, screen flicker, or prop motion.
 
@@ -210,7 +210,7 @@ After `$hatch-pet` finalizes the installed pet folder, run:
 python "${CODEX_HOME:-$HOME/.codex}/skills/codex-pet-director/scripts/check_hatch_output.py" --pet-dir /absolute/path/to/pet --output-dir /absolute/path/to/director-qa
 ```
 
-Review `output_check.json`, `contact-sheet.png`, and every row GIF using `references/action-review.md`. Structural success alone is insufficient: all current rows must pass visual/motion QA and the user must accept the current action set before calling the pet complete.
+Review `output_check.json`, `contact-sheet.png`, and every row GIF using `references/action-review.md`. Structural success alone is insufficient: all current rows must pass visual/motion QA and the user must accept the current action set before calling the pet complete. Apply shared checks plus relevant action-specific checks for support, contacts, jumps, gestures, expressions, secondary motion and recovery; inspect frames, slow and normal-speed previews, and supported state transitions. Report unavailable runtime playback/transition verification explicitly.
 
 ## Reference Files
 
