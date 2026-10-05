@@ -171,7 +171,7 @@ Official states:
 
 For every official action, record `special_request`, `recommended`, `final_direction`, `beat_sheet`, `preview_required`, `preview_confirmed`, and `source` in `pet_brief.json`. Mark `source` as `user`, `mixed`, or `recommended`.
 
-Lock the canonical limb inventory and appendage shapes, including absent hands/fingers, in `appearance.visual_locks`. Action names never authorize new anatomy: rounded plush arm ends must remain rounded, and characters without hands or fingers must not acquire them. Any unsupported anatomy in any frame fails QA.
+Lock the canonical limb inventory and appendage shapes, including absent hands/fingers, in `appearance.visual_locks`. Action names never authorize new anatomy: rounded plush arm ends must remain rounded, and characters without hands or fingers must not acquire them. Any unsupported anatomy in any frame fails QA. Use coordinated head/torso movement for reachable gestures such as touching a cap; never force an arm to elongate to reach. Head movement is allowed while preserving identity and underlying proportions. Abnormal limb stretching or implausible contact fails QA on both initial generation and every redo.
 
 Adapt movement to the pet form. A half-body pet, screen face, floating object, or object mascot does not need literal legs; translate movement into drifting, bouncing, tilting, sliding, jetting, screen flicker, or prop motion.
 
