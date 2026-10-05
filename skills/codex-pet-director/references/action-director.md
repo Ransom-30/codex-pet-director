@@ -126,13 +126,7 @@ Examples:
 
 ## Preview Policy
 
-Do not preview all 9 actions by default. Preview the rows that most affect user confidence:
-
-- Always preview: `idle`, `running-right`, `running-left`, `failed`, `review`.
-- Add `jumping` for full-body pets when the character is motion-heavy.
-- Add `waiting` or `waving` for half-body, head-only, or screen-face pets when expression is more important than locomotion.
-
-Record `preview_required=true` for the selected rows. Do not hand off to `hatch-pet` until the user has confirmed the action card. Preview confirmation is recommended for the selected key rows when generated.
+Group requested actions into batches of 2–3 for generation and a single shared review. Choose the first batch from user priorities, or related actions such as idle and both movement directions. Do not require five preliminary rows or separate key-pose approval. Final generated actions are shown for review using `action-review.md`. Record preview flags for the actual workflow; reuse existing user approval rather than asking again.
 
 ## User Revision Language
 
@@ -153,4 +147,4 @@ Use [action-review.md](action-review.md) for independent left/right angles, moti
 
 ## Production Motion Plan
 
-After agreeing on action intent, use [motion-planning.md](motion-planning.md) to plan feasible key poses and intermediate frames for each official row. Store `motion_plan`, derive the ordered `beat_sheet`, and pass the full numbered plan and relevant locks into `prompt_notes`. Action review and generation follow this plan; the plan itself cannot earn a QA pass.
+Use [motion-planning.md](motion-planning.md) for a concise action description or beat sheet. Detailed per-frame plans are optional; do not make them a generation prerequisite.

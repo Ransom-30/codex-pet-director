@@ -34,7 +34,7 @@ If Codex receives `/jam-create-pet` as plain text rather than a native slash com
 - Do not present alternative product choices or external desktop-pet capabilities unless the user asks.
 - Treat the Codex pet format as fixed: 8 columns x 9 rows, 192x208 cells, 1536x1872 atlas, 9 named states.
 - Do not claim the user can add extra official actions, extra rows, extra frames, random behaviors, or custom controls through `pet.json`.
-- Do not rewrite the lower-level spritesheet pipeline. Use `$hatch-pet` for final official pet generation and packaging.
+- Use `$hatch-pet` for generation, atlas assembly and packaging. No additional animation backend is required.
 - Keep reference-image discussion focused on likeness level. If the user provides a reference, ask how close they want the pet to feel to that reference.
 - Do not hand a high-resolution confirmation image, selfie, anime screenshot, concept image, or polished illustration directly to `$hatch-pet` as the production reference.
 - Final production must use `confirmations.production_base`, and it must pass `scripts/check_pet_asset_fit.py`.
@@ -81,7 +81,7 @@ Never modify the installed Codex app. If the script cannot find a supported Code
 
 ### 1. Set Language And Interview In Small Blocks
 
-Use the seven-block interview from `references/question-flow.md`. Ask one block at a time, not the whole questionnaire at once.
+Use `references/question-flow.md` as optional interview help. Ask only for missing information; skip questions already answered in the request or existing brief.
 
 Record the chosen language when creating the brief:
 
@@ -100,7 +100,7 @@ Default blocks:
 6. 它怎么动
 7. 最终确认
 
-After each block, summarize what was decided in simple Chinese. For important visual blocks, generate 2-4 user-facing confirmation images and ask which direction they prefer. A user may answer by mixing choices, for example: `要 A 的脸 + B 的颜色 + C 的气质`.
+After each block, summarize what was decided in simple Chinese. Generate alternatives only when the user wants options or the visual direction is unclear. A user may answer by mixing choices, for example: `要 A 的脸 + B 的颜色 + C 的气质`.
 
 When reference research is triggered, complete it before generating character direction images. Record the research result in `pet_brief.json` under `reference_research`.
 
@@ -171,17 +171,15 @@ Official states:
 
 For every official action, record `special_request`, `recommended`, `final_direction`, `beat_sheet`, `preview_required`, `preview_confirmed`, and `source` in `pet_brief.json`. Mark `source` as `user`, `mixed`, or `recommended`.
 
-Use the initial confirmed character and its approved production base as the anatomy and proportion contract for all actions and redos: change the pose, not the design. Lock every body part's underlying length, thickness, shape and attachment, including limb inventory and absent hands/fingers, in `appearance.visual_locks`. Action names never authorize new anatomy: rounded plush arm ends must remain rounded, and characters without hands or fingers must not acquire them. Any unsupported anatomy in any frame fails QA. Require plausible motion for every action within the character's established anatomy, joint range, balance and movement style. Coordinate head, torso and existing limbs, or adapt the gesture, instead of stretching limbs, shifting attachments or inventing anatomy to achieve a pose. Perspective and approved stylization may change projected shapes but cannot excuse accidental deformation. Impossible poses, abnormal elongation and implausible contact fail QA on initial generation and every redo.
+Use the approved production base for all actions. Keep the character recognizable, with consistent proportions, clothing, colors and style. Adapt gestures to its existing body; do not add parts or stretch limbs to complete a movement. Allow natural perspective, occlusion, expressions and stylized motion.
 
-Adapt movement to the pet form. A half-body pet, screen face, floating object, or object mascot does not need literal legs; translate movement into drifting, bouncing, tilting, sliding, jetting, screen flicker, or prop motion.
+Summarize the nine action directions in one compact card. Use existing user choices and fill unspecified actions naturally. Ask for confirmation only if intent is still unclear; an explicit request to produce an agreed set is sufficient to continue.
 
-Show a complete action card and ask the user to confirm or revise it. Accept natural short edits such as `改 failed`, `waving 改成点头`, or `running-left 不要镜像`. Do not hand off until all 9 official actions have `final_direction`.
+Default to batches of 2–3 actions. Generate each action as its own row using hatch-pet, then review and present the batch together once. A batch is a review grouping, not a request to combine different actions into one generation image. Use one-at-a-time review only when the user requests it. Separate key-pose tests are optional, not a prerequisite.
 
-Preview key actions before final production when visual generation budget allows. Default preview rows are `idle`, `running-right`, `running-left`, `failed`, and `review`; add `jumping` for full-body motion-heavy pets, or `waiting`/`waving` for half-body, head-only, or screen-face pets.
+Use `references/motion-planning.md` for a short action description or beat sheet and `references/action-review.md` for practical review. Keep prompts focused on the current action, reference, frame count and layout. Do not append the entire QA checklist or competing frame plans.
 
-Use `references/action-review.md` for independent left/right view angles, identity locks, per-frame motion and clarity QA, and immediate row revisions. The initially confirmed extracted character and its approved production base define a mandatory consistency contract: lock underlying proportions, camera scale, material/texture, rendering treatment and identity details across every frame, action and redo. Record concrete locks in `appearance.visual_locks` and pass them to all row prompts; unexplained deviations fail QA. Record each action's `view_angle`, `qa`, and `revision_history`; carry angles and locks into row prompts. After generation, show review choices and allow targeted changes without restarting the interview. Every redo invalidates that action's prior QA and acceptance; rerun structural, per-frame clarity/identity, and animated-motion QA on the replacement before user acceptance and replacement of the accepted version.
-
-Before generating any row, use `references/motion-planning.md` to build an action-specific `motion_plan`: feasible key poses, a numbered plan for the official active frame count, relevant constraints and QA focus. Derive `beat_sheet` and `prompt_notes` from it and carry the complete plan into generation. Plan intermediate motion rather than morphing endpoints; do not force the run template on other actions.
+Use the same approved base across batches and include a brief material/style note in each prompt. Keep texture, shading and overall rendering consistent; natural pose/lighting differences and tiny texture variation do not require exact pixel matching. After one batch review, show the 2–3 actual animations together and offer accept batch, revise named actions, or continue. Review replacements only; keep accepted versions until replacements are ready.
 
 ### 5. Hand Off To Hatch Pet
 
@@ -204,7 +202,9 @@ python "${CODEX_HOME:-$HOME/.codex}/skills/codex-pet-director/scripts/pet_brief.
 python "${CODEX_HOME:-$HOME/.codex}/skills/codex-pet-director/scripts/build_hatch_handoff.py" --brief /absolute/path/to/pet_brief.json --output-dir /absolute/path/to/run
 ```
 
-Ask for one final production confirmation in plain language. Only after the user clearly agrees, load `$hatch-pet` and follow its workflow using the `production_base` reference and the generated `hatch_pet_handoff.json`. Use `references/handoff-to-hatch-pet.md` to convert the pet brief into `hatch-pet` inputs. The `hatch-pet` skill owns base generation, row generation, atlas assembly, QA, preview videos, `pet.json`, and `spritesheet.webp`.
+When the user has requested production of the agreed design, load `$hatch-pet` and follow its workflow using the `production_base` reference and the generated `hatch_pet_handoff.json`. Ask only if production has not been requested. Use `references/handoff-to-hatch-pet.md` to convert the pet brief into `hatch-pet` inputs. The `hatch-pet` skill owns base generation, row generation, atlas assembly, QA, preview videos, `pet.json`, and `spritesheet.webp`.
+
+After hatch prepares the run, check that the actual prompts use the latest action descriptions and correct reference. Replace obsolete instructions rather than stacking new plans on top of them.
 
 After `$hatch-pet` finalizes the installed pet folder, run:
 
@@ -212,7 +212,7 @@ After `$hatch-pet` finalizes the installed pet folder, run:
 python "${CODEX_HOME:-$HOME/.codex}/skills/codex-pet-director/scripts/check_hatch_output.py" --pet-dir /absolute/path/to/pet --output-dir /absolute/path/to/director-qa
 ```
 
-Review `output_check.json`, `contact-sheet.png`, and every row GIF using `references/action-review.md`. Structural success alone is insufficient: all current rows must pass visual/motion QA and the user must accept the current action set before calling the pet complete. Apply shared checks plus relevant action-specific checks for support, contacts, jumps, gestures, expressions, secondary motion and recovery; inspect frames, slow and normal-speed previews, and supported state transitions. Report unavailable runtime playback/transition verification explicitly.
+Review `output_check.json`, exported frames and row GIFs using `references/action-review.md`. Reuse current batch visual reviews; at final assembly check format and cross-batch material/scale consistency once. Do not repeat the same full visual QA unless generation, extraction or shared alignment changed the reviewed pixels. Show the result and report any inspection that could not be performed.
 
 ## Reference Files
 

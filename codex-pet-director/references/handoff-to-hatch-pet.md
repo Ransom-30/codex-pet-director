@@ -90,7 +90,7 @@ After `hatch-pet` finalizes, first review hatch-pet's own output:
 - installed `pet.json`
 - installed `spritesheet.webp`
 
-Then run Director output QA:
+Run Director output checks/preview export once when needed; reuse hatch artifacts and completed batch visual reviews rather than duplicating the same QA:
 
 ```bash
 python "${CODEX_HOME:-$HOME/.codex}/skills/codex-pet-director/scripts/check_hatch_output.py" \
@@ -108,8 +108,10 @@ Block completion if the character identity drifts, background is not clean, unus
 
 Also block completion if the run used anything other than `confirmations.production_base` as the main `--reference` for `prepare_pet_run.py`.
 
-## Visual Acceptance And Revisions
+## Visual Review And Revisions
 
-Follow [action-review.md](action-review.md) after generating any preview or final row. Carry its identity, gait, loop and sharpness requirements into hatch-pet row prompts. Inspect every active frame and animated row, including both running directions; structural output checks do not prove motion or face consistency. Record per-row QA evidence, show actionable revision choices, and route requested changes back through hatch-pet for only affected rows. Completion requires current visual QA passes and user acceptance of the displayed action set.
+Use [action-review.md](action-review.md) to inspect actual frames and available playback. Keep the approved production base and latest action description in the generation inputs. A short beat sheet is enough; structured `motion_plan` fields are optional.
 
-Carry each action's `motion_plan` with its numbered frame plan, key poses, constraints and QA focus into the row-generation request, alongside `beat_sheet` and `prompt_notes`. Use `motion-planning.md` before generation or redo; do not replace planned intermediate motion with unconstrained endpoint morphing.
+Check hatch's generated canonical base against the approved reference. Correct noticeable character drift before producing the rows. Check that actual row prompts use one current action description rather than appended conflicting plans or the full brief/QA checklist.
+
+Generate and review batches of 2–3 rows, showing each batch together once. Keep material, rendering style and scale consistent with the same approved base. At final packaging, check format and cross-batch consistency without repeating unchanged motion reviews. On revision, redo only the affected action and review its replacement. Preserve accepted artifacts and show the new result to the user. Report unavailable playback honestly.
