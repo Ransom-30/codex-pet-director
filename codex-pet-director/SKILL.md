@@ -28,6 +28,14 @@ If the user includes a clear design request in the same message, such as `/jam-c
 
 If Codex receives `/jam-create-pet` as plain text rather than a native slash command, handle it exactly the same way.
 
+## Continue Without Repeated Confirmation
+
+An explicit request to create, continue or revise authorizes the work described. Use known choices and sensible defaults; ask only for missing information that materially changes the character or outcome. Combine related questions into one message. Interview examples are optional, not a sequence of mandatory stops.
+
+During animation production, finish the current authorized batch of 2–3 actions before requesting feedback. Show the batch once with a compact summary; review choices are available, not a compulsory reply gate before the next already-authorized batch. Keep previously accepted artifacts and do not interpret silence as user acceptance. Final activation/installation still follows the user's actual authorization.
+
+Treat “继续改”, named-frame edits and similar feedback as instructions to revise immediately. A request to see a GIF is a preview request, not cancellation of pending revisions or a new approval requirement: show the latest available GIF with its status and continue authorized work. Address related frame transitions when fixing a frame, rather than requiring the user to identify each adjacent discontinuity. Use the existing bounded correction policy; stop for a genuinely unresolved blocker, not routine preview/export/API errors that can be repaired. Never claim an unsuccessful generation or uninspected animation passed.
+
 ## Hard Boundaries
 
 - Target only the official Codex custom pet format.
@@ -117,7 +125,7 @@ python "${CODEX_HOME:-$HOME/.codex}/skills/codex-pet-director/scripts/pet_brief.
 
 Use the brief as the source of truth for all prompts, confirmation summaries, and final handoff. Once the user confirms the formal character image, lock the identity: keep the same face, colors, body type, props, and core silhouette for all actions.
 
-If a `pet_brief.json` already exists in the working folder, never overwrite it or resume it silently. First summarize what it appears to contain, then ask whether the user wants to `继续已有`, `新建宠物`, or `查看已有`. If they choose `新建宠物`, create a fresh brief only after confirming the target path.
+If a `pet_brief.json` exists, preserve it. For an explicit continue/revision request, summarize and resume the relevant draft without asking again. Ask which draft or new target to use only when ambiguous; do not overwrite an unrelated draft.
 
 ### 3. Generate Confirmation Images
 
@@ -181,7 +189,7 @@ Default to batches of 2–3 actions. Generate each action as its own row using h
 
 Use `references/motion-planning.md` for a short action description or beat sheet and `references/action-review.md` for practical review. Keep prompts focused on the current action, reference, frame count and layout. Do not append the entire QA checklist or competing frame plans.
 
-Use the same approved base across batches and include a brief material/style note in each prompt. Keep texture, shading and overall rendering consistent; natural pose/lighting differences and tiny texture variation do not require exact pixel matching. After one batch review, show the 2–3 actual animations together and offer accept batch, revise named actions, or continue. Review replacements only; keep accepted versions until replacements are ready.
+Use the same approved base across batches and include a brief material/style note in each prompt. Keep texture, shading and overall rendering consistent; natural pose/lighting differences and tiny texture variation do not require exact pixel matching. After one batch review, show the 2–3 actual animations together. Allow accept batch, revise named actions, or continue, without requiring a reply to continue already-authorized work. Review replacements only; keep accepted versions until replacements are ready.
 
 ### 5. Hand Off To Hatch Pet
 
@@ -240,7 +248,7 @@ Review `output_check.json`, exported frames and row GIFs using `references/actio
 - Existing `pet_brief.json` files are never resumed or overwritten silently.
 - The full creation flow starts with an environment check after the user chooses `新建宠物` or `继续已有`.
 - The user's language is inferred or confirmed, recorded in `pet_brief.json`, and can be switched without restarting.
-- The user is asked simple questions one block at a time.
+- Only materially missing information is asked, with related questions grouped together.
 - Named people or characters are researched online before visual generation unless the user provides a sufficient reference image.
 - A `pet_brief.json` exists before final production.
 - The official Codex fixed format is respected.
@@ -251,7 +259,7 @@ Review `output_check.json`, exported frames and row GIFs using `references/actio
 - The user confirms `confirmations.production_base_preview` before `$hatch-pet` is loaded.
 - All 9 official actions have `actions.<state>.final_direction` before handoff.
 - `build_hatch_handoff.py` produces `hatch_pet_handoff.json` before production starts.
-- `$hatch-pet` is loaded only after explicit final production confirmation.
+- `$hatch-pet` is loaded after production is authorized, without requesting the same confirmation again.
 - Final production is delegated to `$hatch-pet`.
 - The final installed pet contains `pet.json` and `spritesheet.webp` under `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>/`.
 - `check_hatch_output.py` is run on the final installed pet before reporting completion.

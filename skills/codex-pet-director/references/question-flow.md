@@ -1,6 +1,6 @@
 # Question Flow
 
-Use this interview for official Codex desktop pet creation. Ask one block at a time. Keep each turn short, friendly, and concrete. Translate the wording into the user's selected language.
+Use this interview for official Codex desktop pet creation. Use the blocks as optional examples, not mandatory confirmation stages. Skip answered questions and combine materially missing items into one concise message. Explicit creation/revision instructions authorize proceeding within their scope. Keep each turn short, friendly, and concrete. Translate the wording into the user's selected language.
 
 ## Opening
 
